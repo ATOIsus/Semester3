@@ -5,9 +5,9 @@ public class RemoveElement {
     public static int[] removeElement(int[] arr, int index) {
 
         int[] newArr = new int[arr.length - 1];
-        int count =0;
+        int count = 0;
 
-        for (int i = 0; i < arr.length; i++){
+        for (int i = 0; i < arr.length; i++) {
             if (i != index) {
                 newArr[count] = arr[i];
                 count++;

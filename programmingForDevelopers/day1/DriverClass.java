@@ -18,9 +18,7 @@ public class DriverClass {
         Day1ProblemV2 obj1 = new Day1ProblemV2();
         int answer1 = obj1.returnThird();
 
-        System.out.println("\n" + "\u001B[32m" + " The missing third smallest number is : " + answer1  + "\u001B[0m");
-
-
+        System.out.println("\n" + "\u001B[32m" + " The missing third smallest number is : " + answer1 + "\u001B[0m");
 
 
     }
