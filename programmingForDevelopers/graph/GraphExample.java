@@ -1,5 +1,7 @@
 package programmingForDevelopers.graph;
 
+import programmingForDevelopers.day15.LinkedListExample;
+
 public class GraphExample {
     int vertices;
     int matrix[][];
@@ -49,15 +51,51 @@ public class GraphExample {
 
         for (int i = 0; i < vertices; i++) {
             for (int j = 0; j < vertices; j++) {
-                if (i == node && matrix[i][j] != 0 && pos < vertices) {
+                if (i == node && matrix[i][j] != 0) {
                     adjNode[pos] = j;
                     pos++;
                 }
             }
         }
-
         return adjNode;
     }
+
+    public Node getAdjLinkedList(int node){
+        for (int i = 0; i < vertices; i++) {
+            for (int j = 0; j < vertices; j++) {
+                if (i == node && matrix[i][j] != 0) {
+                    addNode(j);
+                }
+            }
+        }
+        return head;
+    }
+
+    public static class Node {
+        int data;
+        GraphExample.Node next;
+
+        Node(int data) {
+            this.data = data;
+            this.next = null;
+        }
+
+    }
+
+    GraphExample.Node head = null;
+    GraphExample.Node tail = null;
+
+    public void addNode(int data) {
+        GraphExample.Node newnode = new GraphExample.Node(data);
+        if (head == null) {
+            head = tail = newnode;
+        } else {
+            tail.next = newnode;
+            tail = newnode;
+        }
+
+    }
+
 
     public static void main(String[] args) {
         GraphExample g = new GraphExample(5);
@@ -75,10 +113,18 @@ public class GraphExample {
         g.printAdjEdges();
 
         System.out.println();
-        int[] res = g.returnAdjNode(1);
+        int[] res = g.getAdjNode(1);
         for (int i = 0; i < res.length; i++) {
             System.out.print(res[i] + " ");
         }
+
+        System.out.println();
+        Node res1 = g.getAdjLinkedList(2);
+        while (res1 != null){
+            System.out.print(res1.data + " ");
+            res1 = res1.next;
+        }
+
     }
 
 }
