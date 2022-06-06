@@ -34,10 +34,29 @@ public class GraphExample {
                 if (matrix[i][j] != 0) {
                     System.out.print(j + ", ");
                 }
-
             }
             System.out.println("");
         }
+    }
+
+    public int[] getAdjNode(int node) {
+        //travelling to rows
+        int pos = 0;
+        int[] adjNode = new int[vertices];
+        for (int i = 0; i < adjNode.length; i++) {
+            adjNode[i] = -999;
+        }
+
+        for (int i = 0; i < vertices; i++) {
+            for (int j = 0; j < vertices; j++) {
+                if (i == node && matrix[i][j] != 0 && pos < vertices) {
+                    adjNode[pos] = j;
+                    pos++;
+                }
+            }
+        }
+
+        return adjNode;
     }
 
     public static void main(String[] args) {
@@ -48,8 +67,18 @@ public class GraphExample {
         g.addEdge(1, 4);
         g.addEdge(2, 3);
         g.addEdge(3, 4);
+
+        System.out.println(" ");
         g.printGraph();
+
+        System.out.println();
         g.printAdjEdges();
+
+        System.out.println();
+        int[] res = g.returnAdjNode(1);
+        for (int i = 0; i < res.length; i++) {
+            System.out.print(res[i] + " ");
+        }
     }
 
 }
