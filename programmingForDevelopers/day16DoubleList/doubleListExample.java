@@ -1,4 +1,4 @@
-package programmingForDevelopers.doubleList;
+package programmingForDevelopers.day16DoubleList;
 
 public class doubleListExample {
 

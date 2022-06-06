@@ -1,6 +1,4 @@
-package programmingForDevelopers.graph;
-
-import programmingForDevelopers.day15.LinkedListExample;
+package programmingForDevelopers.day20Graph;
 
 public class GraphExample {
     int vertices;
@@ -69,7 +67,7 @@ public class GraphExample {
         return head;
     }
 
-    
+
     public static class Node {
         int data;
         GraphExample.Node next;

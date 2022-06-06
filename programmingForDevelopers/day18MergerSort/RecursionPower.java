@@ -1,4 +1,4 @@
-package programmingForDevelopers.MergerSort;
+package programmingForDevelopers.day18MergerSort;
 
 public class RecursionPower {
 

@@ -1,4 +1,4 @@
-package programmingForDevelopers.graph;
+package programmingForDevelopers.day20Graph;
 
 import java.util.Scanner;
 

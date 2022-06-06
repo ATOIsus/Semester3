@@ -1,4 +1,4 @@
-package programmingForDevelopers.subArray;
+package programmingForDevelopers.day19subArray;
 
 public class SubArrayBruteForce {
 

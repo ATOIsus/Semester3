@@ -1,4 +1,4 @@
-package programmingForDevelopers.LRUCachingEg;
+package programmingForDevelopers.day17LRUCachingEg;
 
 import java.util.HashMap;
 
