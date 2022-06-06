@@ -41,36 +41,35 @@ public class GraphExample {
         }
     }
 
-    public int[] getAdjNode(int node) {
+    public int[] getAdjNode(int i) {
         //travelling to rows
         int pos = 0;
         int[] adjNode = new int[vertices];
-        for (int i = 0; i < adjNode.length; i++) {
-            adjNode[i] = -999;
+        for (int k = 0; k < adjNode.length; k++) {
+            adjNode[k] = -999;
         }
 
-        for (int i = 0; i < vertices; i++) {
-            for (int j = 0; j < vertices; j++) {
-                if (i == node && matrix[i][j] != 0) {
-                    adjNode[pos] = j;
-                    pos++;
-                }
+
+        for (int j = 0; j < vertices; j++) {
+            if (matrix[i][j] != 0) {
+                adjNode[pos] = j;
+                pos++;
             }
         }
+
         return adjNode;
     }
 
-    public Node getAdjLinkedList(int node){
-        for (int i = 0; i < vertices; i++) {
-            for (int j = 0; j < vertices; j++) {
-                if (i == node && matrix[i][j] != 0) {
-                    addNode(j);
-                }
+    public Node getAdjLinkedList(int i) {
+        for (int j = 0; j < vertices; j++) {
+            if (matrix[i][j] != 0) {
+                addNode(j);
             }
         }
         return head;
     }
 
+    
     public static class Node {
         int data;
         GraphExample.Node next;
@@ -93,7 +92,6 @@ public class GraphExample {
             tail.next = newnode;
             tail = newnode;
         }
-
     }
 
 
@@ -120,11 +118,10 @@ public class GraphExample {
 
         System.out.println();
         Node res1 = g.getAdjLinkedList(2);
-        while (res1 != null){
+        while (res1 != null) {
             System.out.print(res1.data + " ");
             res1 = res1.next;
         }
-
     }
 
 }
