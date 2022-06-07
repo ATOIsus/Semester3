@@ -12,7 +12,6 @@ public class LinkedListExample1 {
             this.data = data;
             this.next = null;
         }
-
     }
 
 

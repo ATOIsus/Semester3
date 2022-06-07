@@ -1,4 +1,4 @@
-package programmingForDevelopers.oday20Graph;
+package programmingForDevelopers.oday20Graph.basic;
 
 public class GraphExample {
     int vertices;
@@ -26,6 +26,18 @@ public class GraphExample {
         }
     }
 
+    public int getAdjVerticesSize(int val) {
+        int count = 0;
+        for (int i = 0; i < vertices; i++) {
+            for (int j = 0; j < vertices; j++) {
+                if (i == val && matrix[i][j] != 0) {
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
+
     public void printAdjEdges() {
         //travelling to rows
         for (int i = 0; i < vertices; i++) {
@@ -42,10 +54,7 @@ public class GraphExample {
     public int[] getAdjNode(int i) {
         //travelling to rows
         int pos = 0;
-        int[] adjNode = new int[vertices];
-        for (int k = 0; k < adjNode.length; k++) {
-            adjNode[k] = -999;
-        }
+        int[] adjNode = new int[getAdjVerticesSize(i)];
 
         for (int j = 0; j < vertices; j++) {
             if (matrix[i][j] != 0) {
@@ -107,12 +116,14 @@ public class GraphExample {
         g.printAdjEdges();
 
         System.out.println();
-        int[] res = g.getAdjNode(1);
+        int[] res = g.getAdjNode(2);
+        System.out.println("Adjacent node in array");
         for (int i = 0; i < res.length; i++) {
             System.out.print(res[i] + " ");
         }
 
-        System.out.println();
+        System.out.println("\n");
+        System.out.println("Adjacent node in linked list");
         Node res1 = g.getAdjLinkedList(2);
         while (res1 != null) {
             System.out.print(res1.data + " ");

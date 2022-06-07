@@ -15,7 +15,6 @@ public class AdjacencyList {
 
     public void addEdge(int source, int destination) {
         a[source].addNode(destination);
-
         a[destination].addNode(source);
     }
 
