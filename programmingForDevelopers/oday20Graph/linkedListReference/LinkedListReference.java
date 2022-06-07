@@ -1,6 +1,5 @@
 package programmingForDevelopers.oday20Graph.linkedListReference;
 
-import programmingForDevelopers.iday15LinkedList.assignment.AddHead;
 
 public class LinkedListReference {
     Node head = null;
@@ -25,13 +24,13 @@ public class LinkedListReference {
     //region addNode Function
 
     public void addNode(int data) {
-        Node newnode = new Node(data);
+        Node newNode = new Node(data);
         if (head == null) {
-            head = tail = newnode;
+            head = tail = newNode;
             System.out.println("Linked list created and data inserted: " + data);
         } else {
-            tail.next = newnode;
-            tail = newnode;
+            tail.next = newNode;
+            tail = newNode;
             System.out.println("Data Inserted: " + data);
         }
     }
@@ -43,13 +42,13 @@ public class LinkedListReference {
 
 
     public void addHead(int data) {
-        Node newnode = new Node(data);
+        Node newNode = new Node(data);
         if (tail == null) {
-            head = tail = newnode;
+            head = tail = newNode;
             System.out.println("Linked list created and data inserted: " + data);
         } else {
-            head.next = newnode;
-            head = newnode;
+            head.next = newNode;
+            head = newNode;
             System.out.println("Data Inserted: " + data);
         }
         System.out.println();
