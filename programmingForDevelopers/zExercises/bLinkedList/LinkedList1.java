@@ -1,4 +1,4 @@
 package programmingForDevelopers.zExercises.bLinkedList;
 
-public class Stack1 {
+public class LinkedList1 {
 }

@@ -8,9 +8,9 @@ package programmingForDevelopers.zExercises.aArray;
     Answer: Let there be two queues: queueA and queueB
 
             Push: Enqueue data in queueA.
-            Pop: a) Dequeue all data from queueA to queueB except last element.
-                 b) Dequeue from queueB (i.e. actual pop).
-                 c) Enqueue all remaining element from queueB to queueA.
+            Pop: a) Dequeue all data from queueA to queueB except last element.  (Time: n)
+                 b) Dequeue last element from queueA (i.e. actual pop). (Time: constant)
+                 c) Enqueue all remaining element from queueB to queueA. (Time: n)
 
  */
 

@@ -37,6 +37,10 @@ public class LinkedListExample1 {
         }
     }
 
+    public Node returnAdjacentNode(){
+        return head;
+    }
+
     public void removeTail() {
         Node current = head;
 
