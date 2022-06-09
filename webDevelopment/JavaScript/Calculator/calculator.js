@@ -25,7 +25,6 @@ let btnDiv = document.getElementById('btnDiv');
 let btnClr = document.getElementById('btnClear');
 let btnEqual = document.getElementById('btnResult');
 
-btn0.onclick(alert("sadasdas"))
 
 btn0.addEventListener('click', tak(0))
 btn1.addEventListener('click', tak(1))

@@ -22,7 +22,7 @@ console.log("arrow fun")
 
 
 
-let a = function doSmth(){
+function doSmth(){
     let inputElem1 = document.getElementById("val1");
     let inputElem2 = document.getElementById("val2");
 
@@ -43,7 +43,7 @@ console.log(calculateBtn);
 
 
 
-calculateBtn.addEventListener('click',a());
+calculateBtn.addEventListener('click',() => {alert(1)});
 
 function check1(){
     alert(1)
