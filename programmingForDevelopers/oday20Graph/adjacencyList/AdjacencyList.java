@@ -26,8 +26,15 @@ public class AdjacencyList {
         }
     }
 
-    public LinkedListExample1.Node getAdjacentNode(int i) {
-        return a[i].returnAdjacentNode();
+    public int [] getAdjacentNode(int i){
+        int list[]=new int[a[i].getSize()];
+        LinkedListExample1.Node current=a[i].head;
+        int indx=0;
+        while(current!=null){
+           list[indx++]= current.data;
+           current=current.next;
+        }
+        return list;
     }
 
 
@@ -45,12 +52,9 @@ public class AdjacencyList {
 
 
         System.out.println();
-        LinkedListExample1.Node current = g.getAdjacentNode(1);;
-        while (current != null) {
-            System.out.print(current.data);
-            current = current.next;
-            System.out.print( " , ");
+        int[] res =  g.getAdjacentNode(2);
+        for (int i = 0; i < res.length; i++){
+            System.out.print(res[i] + " , ");
         }
-
     }
 }
