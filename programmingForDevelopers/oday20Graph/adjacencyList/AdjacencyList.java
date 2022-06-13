@@ -1,5 +1,9 @@
 package programmingForDevelopers.oday20Graph.adjacencyList;
 
+
+import java.util.Arrays;
+import java.util.Iterator;
+
 public class AdjacencyList {
 
     LinkedListExample1[] a;
@@ -38,6 +42,53 @@ public class AdjacencyList {
     }
 
 
+    public void BFS(int rootnode) {
+        System.out.println("Exploring element with BFS algorithm with rootNode : " + rootnode);
+        boolean visited[] = new boolean[vertices];
+        QueueEg q = new QueueEg(vertices);
+        visited[rootnode] = true;
+        q.enqueue(rootnode);
+        while (!q.isEmpty()) {
+            int x = q.dequeue();
+            int[] list = getAdjacentNode(x);
+            for (int i = 0; i < list.length; i++) {
+                int adjNode = list[i];
+                if (!visited[adjNode]) {
+                    q.enqueue(adjNode);
+                    visited[adjNode] = true;
+                }
+            }
+            System.out.println("Element visited : " + x);
+        }
+    }
+
+
+    public void DFS(int rootnode,boolean [] visited){
+
+        visited[rootnode]=true;
+        System.out.println("Node visited: " + rootnode);
+//        Iterator<Integer> iterator= Arrays.stream(getAdjacentNode(rootnode)).iterator();
+//        while(iterator.hasNext()){
+//            int adjval=iterator.next();
+//        }
+        int [] list=getAdjacentNode(rootnode);
+        for(int i=0;i<list.length;i++){
+          int adjval=list[i];
+          if(!visited[adjval]){
+              DFS(adjval,visited);
+          }
+        }
+
+
+    }
+
+    public void depthfirstsearch(int rootnode){
+        System.out.println("Traversing in  DFS manner");
+        boolean visited[]=new boolean[vertices];
+        DFS(rootnode,visited);
+    }
+
+
     public static void main(String[] args) {
         AdjacencyList g = new AdjacencyList(5);
 
@@ -48,13 +99,21 @@ public class AdjacencyList {
         g.addEdge(2, 3);
         g.addEdge(3, 4);
 
+        System.out.println("Grapth printed: ");
         g.printGraph();
 
 
         System.out.println();
+        System.out.print("Adjancent Nodes: ");
         int[] res =  g.getAdjacentNode(2);
         for (int i = 0; i < res.length; i++){
             System.out.print(res[i] + " , ");
         }
+
+        System.out.println("\n");
+        g.BFS(2);
+
+        System.out.println();
+        g.depthfirstsearch(2);
     }
 }

@@ -27,26 +27,6 @@ public class BFSExample {
         }
     }
 
-    public void BFS(int rootnode) {
-        System.out.println("Exploring element with BFS algorithm with rootNode : " + rootnode);
-        boolean visited[] = new boolean[vertices];
-        QueueEg q = new QueueEg(vertices);
-        visited[rootnode] = true;
-        q.enqueue(rootnode);
-        while (!q.isEmpty()) {
-            int x = q.dequeue();
-            int[] list = getAdjacentNode(x);
-            for (int i = 0; i < list.length; i++) {
-                int adjNode = list[i];
-                if (!visited[adjNode]) {
-                    q.enqueue(adjNode);
-                    visited[adjNode] = true;
-                }
-            }
-            System.out.println("Element visited : " + x);
-        }
-    }
-
     public int[] getAdjacentNode(int i) {
         int list[] = new int[a[i].getSize()];
         LinkedListEg.Node current = a[i].head;
@@ -99,7 +79,6 @@ public class BFSExample {
         g.printGraph();
         System.out.println();
 
-        g.BFS(1);
 
 
 
