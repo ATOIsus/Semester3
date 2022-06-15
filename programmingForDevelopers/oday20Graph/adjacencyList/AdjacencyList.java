@@ -30,13 +30,13 @@ public class AdjacencyList {
         }
     }
 
-    public int [] getAdjacentNode(int i){
-        int list[]=new int[a[i].getSize()];
-        LinkedListExample1.Node current=a[i].head;
-        int indx=0;
-        while(current!=null){
-           list[indx++]= current.data;
-           current=current.next;
+    public int[] getAdjacentNode(int i) {
+        int list[] = new int[a[i].getSize()];
+        LinkedListExample1.Node current = a[i].head;
+        int indx = 0;
+        while (current != null) {
+            list[indx++] = current.data;
+            current = current.next;
         }
         return list;
     }
@@ -62,30 +62,64 @@ public class AdjacencyList {
         }
     }
 
+    public void topoSort() {
+        int indegree[] = new int[vertices];
+        for (int i = 0; i < vertices; i++) {
+            //i=1 list[1,2] list[j]=list[0]=1=adjaval
+            int[] list = getAdjacentNode(i);
+            for (int j = 0; j < list.length; j++) {
+                int adjval = list[j];
+                indegree[adjval]++;
+            }
+        }
 
-    public void DFS(int rootnode,boolean [] visited){
+        QueueEg q = new QueueEg(vertices);
+        for (int i = 0; i < vertices; i++) {
+            if (indegree[i] == 0) {
+                q.enqueue(i);
+            }
+        }
 
-        visited[rootnode]=true;
+        int cnt = 0;
+        while (!q.isEmpty()) {
+            cnt++;
+            int x = q.dequeue();
+            System.out.println(x);
+            int[] list = getAdjacentNode(x);
+            for (int i = 0; i < list.length; i++) {
+                int adjval = list[i];
+                indegree[adjval]--;
+                if (indegree[adjval] == 0) {
+                    q.enqueue(adjval);
+                }
+            }
+        }
+        //if cnt!=vertex{}
+    }
+
+    public void DFS(int rootnode, boolean[] visited) {
+
+        visited[rootnode] = true;
         System.out.println("Node visited: " + rootnode);
 //        Iterator<Integer> iterator= Arrays.stream(getAdjacentNode(rootnode)).iterator();
 //        while(iterator.hasNext()){
 //            int adjval=iterator.next();
 //        }
-        int [] list=getAdjacentNode(rootnode);
-        for(int i=0;i<list.length;i++){
-          int adjval=list[i];
-          if(!visited[adjval]){
-              DFS(adjval,visited);
-          }
+        int[] list = getAdjacentNode(rootnode);
+        for (int i = 0; i < list.length; i++) {
+            int adjval = list[i];
+            if (!visited[adjval]) {
+                DFS(adjval, visited);
+            }
         }
 
 
     }
 
-    public void depthfirstsearch(int rootnode){
+    public void depthfirstsearch(int rootnode) {
         System.out.println("Traversing in  DFS manner");
-        boolean visited[]=new boolean[vertices];
-        DFS(rootnode,visited);
+        boolean visited[] = new boolean[vertices];
+        DFS(rootnode, visited);
     }
 
 
@@ -105,8 +139,8 @@ public class AdjacencyList {
 
         System.out.println();
         System.out.print("Adjancent Nodes: ");
-        int[] res =  g.getAdjacentNode(2);
-        for (int i = 0; i < res.length; i++){
+        int[] res = g.getAdjacentNode(2);
+        for (int i = 0; i < res.length; i++) {
             System.out.print(res[i] + " , ");
         }
 
@@ -115,5 +149,8 @@ public class AdjacencyList {
 
         System.out.println();
         g.depthfirstsearch(2);
+        System.out.println();
+
+        g.topoSort();
     }
 }
