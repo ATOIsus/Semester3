@@ -19,7 +19,7 @@ public class AdjacencyList {
 
     public void addEdge(int source, int destination) {
         a[source].addNode(destination);
-        a[destination].addNode(source);
+        //a[destination].addNode(source); Commented for Topological sort (Directed graph)
     }
 
     public void printGraph() {
@@ -63,6 +63,9 @@ public class AdjacencyList {
     }
 
     public void topoSort() {
+
+        System.out.println("Topological sort started.");
+
         int indegree[] = new int[vertices];
         for (int i = 0; i < vertices; i++) {
             //i=1 list[1,2] list[j]=list[0]=1=adjaval
@@ -84,7 +87,7 @@ public class AdjacencyList {
         while (!q.isEmpty()) {
             cnt++;
             int x = q.dequeue();
-            System.out.println(x);
+            System.out.println("Visited Node : " + x);
             int[] list = getAdjacentNode(x);
             for (int i = 0; i < list.length; i++) {
                 int adjval = list[i];
@@ -94,7 +97,9 @@ public class AdjacencyList {
                 }
             }
         }
-        //if cnt!=vertex{}
+        if (cnt != vertices) {
+            System.out.println("A cycle exists.");
+        }
     }
 
     public void DFS(int rootnode, boolean[] visited) {
@@ -135,8 +140,9 @@ public class AdjacencyList {
 
         System.out.println("Grapth printed: ");
         g.printGraph();
+        System.out.println();
 
-
+        /*
         System.out.println();
         System.out.print("Adjancent Nodes: ");
         int[] res = g.getAdjacentNode(2);
@@ -150,6 +156,8 @@ public class AdjacencyList {
         System.out.println();
         g.depthfirstsearch(2);
         System.out.println();
+
+         */
 
         g.topoSort();
     }
