@@ -4,7 +4,13 @@ from django.shortcuts import render
 
 
 def index(request):
-    return render(request, 'index.html')
+    print(request)
+    data = {
+        "brand": "Ford",
+        "model": "Mustang",
+        "year": 1964
+    }
+    return render(request, 'index.html', {'datas': data})
 
 
 def about(request):
