@@ -42,7 +42,46 @@ public class DFS {
 
 
 
+    public void DFSearch(int rootnode, boolean[] visited) {
 
+        visited[rootnode] = true;
+        System.out.println("Node visited: " + rootnode);
+
+        int[] list = getAdjacentNode(rootnode);
+        for (int i = 0; i < list.length; i++) {
+            int adjval = list[i];
+            if (!visited[adjval]) {
+                DFSearch(adjval, visited);
+            }
+        }
+    }
+
+
+    public void depthfirstsearch(int rootnode) {
+        System.out.println("Traversing in  DFS manner");
+        boolean visited[] = new boolean[vertices];
+        DFSearch(rootnode, visited);
+    }
+
+
+    public static void main(String[] args) {
+
+        DFS g = new DFS(5);
+
+        g.addEdge(0, 1);
+        g.addEdge(0, 2);
+        g.addEdge(1, 3);
+        g.addEdge(1, 4);
+        g.addEdge(2, 3);
+        g.addEdge(3, 4);
+
+        System.out.println("Grapth printed: ");
+        g.printGraph();
+        System.out.println();
+
+        g.depthfirstsearch(0);
+
+    }
 
 
 

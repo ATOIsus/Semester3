@@ -117,14 +117,44 @@ public class AdjacencyList {
                 DFS(adjval, visited);
             }
         }
-
-
     }
+
 
     public void depthfirstsearch(int rootnode) {
         System.out.println("Traversing in  DFS manner");
         boolean visited[] = new boolean[vertices];
         DFS(rootnode, visited);
+    }
+
+    public void DFSTopo(int rootnode, boolean[] visited, StackExample stk) {
+
+        visited[rootnode] = true;
+        int[] list = getAdjacentNode(rootnode);
+        for (int i = 0; i < list.length; i++) {
+            int adjval = list[i];
+            if (!visited[adjval]) {
+                DFSTopo(adjval, visited, stk);
+            }
+        }
+        stk.push(rootnode);
+    }
+
+
+    public void topoSortDFS() {
+        boolean visited[] = new boolean[vertices];
+        StackExample stk = new StackExample(vertices);
+
+        for (int i = 0; i < vertices; i++) {
+            if (!visited[i]) {
+                DFSTopo(i, visited, stk);
+            }
+        }
+        System.out.println();
+        System.out.print("Topological sort using DFS: ");
+        while (!stk.isEmpty()) {
+            System.out.print(stk.pop() + " , ");
+        }
+        System.out.println();
     }
 
 
@@ -144,7 +174,7 @@ public class AdjacencyList {
 
         /*
         System.out.println();
-        System.out.print("Adjancent Nodes: ");
+        System.out.print("Adjacent Nodes: ");
         int[] res = g.getAdjacentNode(2);
         for (int i = 0; i < res.length; i++) {
             System.out.print(res[i] + " , ");
@@ -157,8 +187,11 @@ public class AdjacencyList {
         g.depthfirstsearch(2);
         System.out.println();
 
-         */
 
         g.topoSort();
+
+         */
+
+        g.topoSortDFS();
     }
 }

@@ -38,9 +38,9 @@ public class BFSExample {
         return list;
     }
 
-    /*
 
     public void BFSEGGG(int rootNode){
+        System.out.println("BFS Started.");
         boolean visited[] = new boolean[vertices];
         QueueEg queue = new QueueEg(vertices);
 
@@ -63,7 +63,6 @@ public class BFSExample {
             System.out.println("Node visited: " + x);
         }
     }
-     */
 
 
     public static void main(String[] args) {
@@ -80,9 +79,6 @@ public class BFSExample {
         System.out.println();
 
 
-
-
-    /*
         System.out.println();
         int vertex = 4;
         int[] res =  g.getAdjacentNode(vertex);
@@ -93,7 +89,6 @@ public class BFSExample {
         System.out.println("\n");
 
         g.BFSEGGG(1);
-    */
 
 
     }
