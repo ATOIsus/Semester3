@@ -9,9 +9,9 @@ public class GraphExample {
         matrix = new int[vertices][vertices];
     }
 
-    public void addEdge(int source, int destination) {
-        matrix[source][destination] = 1;
-        matrix[destination][source] = 1;
+    public void addEdge(int source, int destination,int weight) {
+        matrix[source][destination] = weight;
+        matrix[destination][source] = weight;
     }
 
     public void printGraph() {
@@ -24,6 +24,60 @@ public class GraphExample {
             }
             System.out.println("");
         }
+    }
+
+    public void dijakstra(int source, int destination){
+
+        int distance[]=new int[vertices];
+        int prevpath[]=new int[vertices];
+        boolean visited[]=new boolean[vertices];
+
+        //initially updating distance to infinity
+        //and updating prevpath to -1
+        for(int i=0;i<vertices;i++){
+            distance[i]=Integer.MAX_VALUE;
+            prevpath[i]=-1;
+        }
+        //distance from source to source is zero
+        distance[source]=0;
+
+        for(int i=0;i<vertices;i++){
+            //finding minimum vertex i.e vertex having minimum distance
+            int u=findMinVertex(distance,visited);
+            visited[u]=true;
+
+            //finding adjacent nodes of u
+            for (int j = 0; j < vertices; j++) {
+                if (matrix[u][j] != 0 &!visited[j]) {
+                    int v = j;
+                    int newdistance=distance[u]+matrix[u][j];
+                    if(newdistance<distance[v]){
+                        distance[v]=newdistance;
+                        prevpath[v]=u;
+                    }
+                }
+            }
+        }
+     //printing distance
+        System.out.println("distance from source: "+source+" to destination: "+destination+" is="+ distance[destination]);
+        //printing shortest path
+    }
+    public int findMinVertex(int distance[],boolean visited[]){
+        int minvertex=-1;
+        for(int i=0;i<vertices;i++){
+//            if(minvertex==-1 && !visited[i]){
+//                minvertex=i;
+//
+//            }
+//            else if(distance[minvertex]>distance[i] && !visited[i]){
+//                minvertex=i;
+//            }
+
+            if((minvertex==-1 || distance[minvertex]>distance[i]) & !visited[i] ){
+                minvertex=i;
+            }
+        }
+        return minvertex;
     }
 
     public int getAdjVerticesSize(int val) {
@@ -50,6 +104,8 @@ public class GraphExample {
             System.out.println("");
         }
     }
+
+
 
     public int[] getAdjNode(int i) {
         //travelling to rows
@@ -101,13 +157,16 @@ public class GraphExample {
 
 
     public static void main(String[] args) {
-        GraphExample g = new GraphExample(5);
-        g.addEdge(0, 1);
-        g.addEdge(0, 2);
-        g.addEdge(1, 3);
-        g.addEdge(1, 4);
-        g.addEdge(2, 3);
-        g.addEdge(3, 4);
+        GraphExample g = new GraphExample(6);
+        g.addEdge(0, 1,10);
+        g.addEdge(0, 2,5);
+        g.addEdge(0, 5,100);
+        g.addEdge(1, 3,20);
+        g.addEdge(1, 2,30);
+        g.addEdge(2, 4,10);
+        g.addEdge(3, 4,5);
+        g.addEdge(3, 5,15);
+        g.addEdge(4, 5,15);
 
         System.out.println(" ");
         g.printGraph();

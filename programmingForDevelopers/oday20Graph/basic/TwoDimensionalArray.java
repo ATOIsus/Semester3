@@ -52,15 +52,12 @@ public class TwoDimensionalArray {
 
     public static void main(String[] args) {
         TwoDimensionalArray obj = new TwoDimensionalArray();
-        obj.makeArray(1, 2);
+        obj.makeArray(4, 4);
 
         System.out.println("\n");
 
         obj.printArray();
 
-        System.out.println("\n");
-
-        System.out.println(obj.searchValue(3));
     }
 
 }
