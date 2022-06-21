@@ -26,60 +26,6 @@ public class GraphExample {
         }
     }
 
-    public void dijakstra(int source, int destination){
-
-        int distance[]=new int[vertices];
-        int prevpath[]=new int[vertices];
-        boolean visited[]=new boolean[vertices];
-
-        //initially updating distance to infinity
-        //and updating prevpath to -1
-        for(int i=0;i<vertices;i++){
-            distance[i]=Integer.MAX_VALUE;
-            prevpath[i]=-1;
-        }
-        //distance from source to source is zero
-        distance[source]=0;
-
-        for(int i=0;i<vertices;i++){
-            //finding minimum vertex i.e vertex having minimum distance
-            int u=findMinVertex(distance,visited);
-            visited[u]=true;
-
-            //finding adjacent nodes of u
-            for (int j = 0; j < vertices; j++) {
-                if (matrix[u][j] != 0 &!visited[j]) {
-                    int v = j;
-                    int newdistance=distance[u]+matrix[u][j];
-                    if(newdistance<distance[v]){
-                        distance[v]=newdistance;
-                        prevpath[v]=u;
-                    }
-                }
-            }
-        }
-     //printing distance
-        System.out.println("distance from source: "+source+" to destination: "+destination+" is="+ distance[destination]);
-        //printing shortest path
-    }
-    public int findMinVertex(int distance[],boolean visited[]){
-        int minvertex=-1;
-        for(int i=0;i<vertices;i++){
-//            if(minvertex==-1 && !visited[i]){
-//                minvertex=i;
-//
-//            }
-//            else if(distance[minvertex]>distance[i] && !visited[i]){
-//                minvertex=i;
-//            }
-
-            if((minvertex==-1 || distance[minvertex]>distance[i]) & !visited[i] ){
-                minvertex=i;
-            }
-        }
-        return minvertex;
-    }
-
     public int getAdjVerticesSize(int val) {
         int count = 0;
         for (int i = 0; i < vertices; i++) {
