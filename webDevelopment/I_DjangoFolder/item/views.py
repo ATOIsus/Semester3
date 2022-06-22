@@ -15,6 +15,7 @@ def create(request):
 
 def save(request):
     print(request.POST)
-    data = ItemForm(request.POST)
+    print(request.FILES)
+    data = ItemForm(request.POST, request.FILES)
     data.save()
     return redirect("/item")

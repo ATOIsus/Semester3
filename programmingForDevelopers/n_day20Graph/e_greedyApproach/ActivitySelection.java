@@ -1,4 +1,4 @@
-package programmingForDevelopers.oday20Graph.greedyApproach;
+package programmingForDevelopers.n_day20Graph.e_greedyApproach;
 
 public class ActivitySelection {
 

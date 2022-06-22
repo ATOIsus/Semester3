@@ -1,4 +1,4 @@
-package programmingForDevelopers.oday20Graph.greedyApproach;
+package programmingForDevelopers.n_day20Graph.e_greedyApproach;
 
 public class ShortestPathDijkstra {
     int vertices;
@@ -48,7 +48,7 @@ public class ShortestPathDijkstra {
 
             //Finding adjacent nodes of u
             for (int j = 0; j < vertices; j++) {
-                if (matrix[u][j] != 0 & !visited[j]) {
+                if (matrix[u][j] != 0 && !visited[j]) {
                     int v = j;
                     int newDistance = distance[u] + matrix[u][j];
                     if (newDistance < distance[v]) {
@@ -74,7 +74,7 @@ public class ShortestPathDijkstra {
             count++;
         }
         
-        System.out.println("\nShortest path is : ");
+        System.out.print("\nShortest path is : ");
         for (int i = count -1;  i>=0; i--){
             System.out.print(shortestPath[i] + " , ");
         }

@@ -5,6 +5,7 @@ item index page
     <tr>
         <th>item id</th>
         <th>item name</th>
+        <th>img</th>
     </tr>
 
     {% for item in items %}
@@ -12,6 +13,7 @@ item index page
     <tr>
         <th> {{item.id}} </th>
         <th> {{item.itemName}} </th>
+        <th> <img src="{{item.itemImage}}"/>" </th>
     </tr>
 
     {%endfor%}
