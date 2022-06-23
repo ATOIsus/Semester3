@@ -1,0 +1,12 @@
+<form action="/item/update/{{data.id}}" method="POST"  enctype="multipart/form-data">
+    {% csrf_token %}
+    item_name:<input type="text" name="itemName"  value="{{data.itemName}}"/>
+    <br>
+    File: <input type = "file" name = "itemImage">
+          <img width=100 src="/{{data.itemImage}}">
+
+    <br>
+    <br>
+
+    <input type="submit" value="Update" />
+</form>

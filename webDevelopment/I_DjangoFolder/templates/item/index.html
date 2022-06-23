@@ -1,11 +1,18 @@
 item index page
 
+<br>
+
+<h1>
+<a href="/item/create"> create </a>
+</h1>
 
 <table>
     <tr>
         <th>item id</th>
         <th>item name</th>
         <th>img</th>
+        <th>Action</th>
+
     </tr>
 
     {% for item in items %}
@@ -13,7 +20,15 @@ item index page
     <tr>
         <th> {{item.id}} </th>
         <th> {{item.itemName}} </th>
-        <th> <img src="{{item.itemImage}}"/>" </th>
+        <th> <img width="100" src="{{item.itemImage}}" />" </th>
+
+        <th>
+            <a href="/item/edit/{{item.id}}"> edit </a>
+        </th>
+        <th>
+            <a href="/item/delete/{{item.id}}"> delete </a>
+        </th>
+    
     </tr>
 
     {%endfor%}

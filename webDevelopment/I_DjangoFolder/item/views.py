@@ -19,3 +19,26 @@ def save(request):
     data = ItemForm(request.POST, request.FILES)
     data.save()
     return redirect("/item")
+
+
+def edit(request, id):
+    print(id)
+    data = Item.objects.get(id=id)
+    return render(request,"item/edit.html",{'data':data})
+
+
+
+def update(request, id):
+    print(id)
+    data = Item.objects.get(id=id)
+    form=ItemForm(request.POST, request.FILES, instance=data)
+    form.save()
+    return redirect("/item")
+
+
+
+def delete(request, id):
+    data = Item.objects.get(id=id)
+    data.delete()
+    return redirect("/item")
+
