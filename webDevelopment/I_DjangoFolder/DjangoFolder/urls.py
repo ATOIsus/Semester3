@@ -21,5 +21,6 @@ urlpatterns = [
     # path("", views.index)
     # path('admin/', admin.site.urls),
     path("", include("app.urls")),
-    path("item", include("item.urls"))
+    path("item", include("item.urls")),
+    path("user", include("user.urls"))
 ]
