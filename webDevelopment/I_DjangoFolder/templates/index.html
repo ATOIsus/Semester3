@@ -1,13 +1,14 @@
-<html>
 
-<head>
-    <title>index file</title>
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
-</head>
 
-<body>
+{% extends 'main.html' %}
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}" />
+
+{% block content %}
+
+
+
     <h1>{{ datas }}</h1>
-</body>
 
-</html>
+{% endblock %}

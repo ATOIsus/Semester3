@@ -1,0 +1,30 @@
+.main{
+    display:  flex;
+    flex-direction: row;
+}
+
+
+
+.main .sidebar{
+    background-color: black;
+    height: 97vh;
+    width: 80px;
+}
+
+.main .right-content{
+    background-color: gold;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    height: 100%;
+}
+
+.main .right-content .topbar{
+    background-color: rgb(20, 102, 127);
+    height: 80px;
+    width: 100%;
+}
+
+.main .right-content .main-section{
+    background-color: brown;
+}

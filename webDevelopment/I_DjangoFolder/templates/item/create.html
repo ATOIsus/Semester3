@@ -1,19 +1,29 @@
-<form action="/item/save" method="POST"  enctype="multipart/form-data">
-    {% csrf_token %}
-    item_name:<input type="text" name="itemName"/>
+
+{% extends 'main.html' %}
+
+{% block content %}
+
+    Extends implemented
     <br>
-    File: <input type = "file" name = "itemImage">
 
-    <input type="submit" value="save" />
-</form>
+    <form action="/item/save" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        item_name:<input type="text" name="itemName" />
+        <br>
+        File: <input type="file" name="itemImage">
+
+        <input type="submit" value="save" />
+    </form>
 
 
 
-<h1>
-    <a href="/item"> Item </a>
-</h1>
+    <h1>
+        <a href="/item"> Item </a>
+    </h1>
 
 
-<h3>
-    <a href="/user/logout"> Log Out </a>
-</h3>
+    <h3>
+        <a href="/user/logout"> Log Out </a>
+    </h3>
+
+    {% endblock %}
