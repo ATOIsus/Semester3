@@ -40,5 +40,8 @@ public class BinarySearchTree {
 
     public void removeNode(int data){
 
+
+
+
     }
 }
