@@ -30,6 +30,25 @@ public class AVLTree {
 
         rootnode.height=Math.max(getHeight(rootnode.left),getHeight(rootnode.right))+1;
         int balancefactor=getBalancingFactor(rootnode);
+        //RR
+        if(balancefactor< -1 && rootnode.data<data){
+            return leftRotate(rootnode);
+        }
+        //RL
+        if(balancefactor< -1 && rootnode.data>data){
+            rootnode.right=rightRotate(rootnode.right);
+            return leftRotate(rootnode);
+        }
+        //LL
+        if(balancefactor> 1 && rootnode.data>data){
+            return leftRotate(rootnode);
+        }
+        //LR
+        if(balancefactor> 1 && rootnode.data<data){
+            rootnode.right=rightRotate(rootnode.right);
+            return leftRotate(rootnode);
+        }
+
         return rootnode;
     }
 
@@ -59,7 +78,7 @@ public class AVLTree {
 
     Node leftRotate(Node x){
         Node y=x.right;
-        Node T2=x.left;
+        Node T2=y.left;
         y.left=x;
         x.right=T2;
         x.height=Math.max(getHeight(x.left),getHeight(x.right))+1;
