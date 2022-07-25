@@ -1,7 +1,7 @@
-package programmingForDevelopers.A_Basic.View;
+package programmingForDevelopers.z_GUI.Face;
 
 
-import programmingForDevelopers.A_Basic.BusinessLogic.Brain;
+import programmingForDevelopers.z_GUI.Brain.Brain;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;

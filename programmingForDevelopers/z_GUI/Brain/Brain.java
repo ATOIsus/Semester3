@@ -1,4 +1,4 @@
-package programmingForDevelopers.A_Basic.BusinessLogic;
+package programmingForDevelopers.z_GUI.Brain;
 
 public class Brain {
 
