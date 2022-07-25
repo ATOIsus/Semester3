@@ -1,16 +1,16 @@
-package programmingForDevelopers.oday20Graph.BFSExample;
+package programmingForDevelopers.n_day20Graph.c_BFSExample;
 
 
 public class BFSExample {
 
-    LinkedListEg[] a;
+    LinkedListEg1[] a;
     int vertices;
 
     BFSExample(int vertices) {
         this.vertices = vertices;
-        a = new LinkedListEg[vertices];
+        a = new LinkedListEg1[vertices];
         for (int i = 0; i < vertices; i++) {
-            a[i] = new LinkedListEg();
+            a[i] = new LinkedListEg1();
         }
     }
 
@@ -29,7 +29,7 @@ public class BFSExample {
 
     public int[] getAdjacentNode(int i) {
         int list[] = new int[a[i].getSize()];
-        LinkedListEg.Node current = a[i].head;
+        LinkedListEg1.Node current = a[i].head;
         int indx = 0;
         while (current != null) {
             list[indx++] = current.data;

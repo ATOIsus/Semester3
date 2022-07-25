@@ -1,6 +1,6 @@
-package programmingForDevelopers.oday20Graph.BFSExample;
+package programmingForDevelopers.n_day20Graph.c_BFSExample;
 
-public class LinkedListEg {
+public class LinkedListEg1 {
     Node head = null;
     Node tail = null;
 

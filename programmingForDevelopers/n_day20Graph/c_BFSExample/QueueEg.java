@@ -1,4 +1,4 @@
-package programmingForDevelopers.oday20Graph.BFSExample;
+package programmingForDevelopers.n_day20Graph.c_BFSExample;
 
 public class QueueEg {
     int quees[];
