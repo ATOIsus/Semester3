@@ -19,7 +19,6 @@ public class Face extends JFrame implements ActionListener {
 
     Face() {
 
-
         setLayout(null);
         setSize(500, 500);
         setResizable(false);
